@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { urlify } from "./helper";
 
-function App() {
+export default function App() {
+  useEffect(() => {}, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {data.map((_, index) => {
+        return (
+          <div
+            style={{
+              margin: 20,
+              padding: 20,
+            }}
+          >
+            <h1>{_.title}</h1>
+            <div style={{ border: "1px solid red", padding: 20 }}>{_.show}</div>
+          </div>
+        );
+      })}
+    </>
   );
 }
 
-export default App;
+var text =
+  "Find me at http://www.khelgully.com and also at http://stackoverflow.com";
+
+let data = [
+  {
+    id: 1,
+    title: "GET URL IN A MESSAGE OR TEXT",
+    show: <div dangerouslySetInnerHTML={{ __html: urlify(text) }} />,
+  },
+];
