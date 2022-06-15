@@ -69,3 +69,12 @@ export const LoginRedirectUser = (user) => {
   }
   return path;
 };
+
+// Find Unique Values Inside Array
+export const getUniqueValuesInArray = ({ array, key }) => {
+  const arrayUniqueByKey = [
+    ...new Map(array.map((item) => [item[key], item])).values(),
+  ];
+
+  return arrayUniqueByKey;
+};
